@@ -1,0 +1,22 @@
+#jogar div {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+
+  button {
+    width: 150px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: #4CB4FF;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #logo {
+    width: 200px;
+    height: auto;
+  }
+}

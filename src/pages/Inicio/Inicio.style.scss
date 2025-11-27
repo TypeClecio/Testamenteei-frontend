@@ -1,0 +1,117 @@
+main#inicio {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 100px 0;
+
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    cursor: default;
+  }
+  
+  section {
+    padding: 30px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    box-shadow: 0 5px 10px -5px gray;
+    cursor: default;
+
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#colocacao {
+  #melhores-jogadores {
+    padding: 0 20px;
+  }
+
+  #nome-jogador {
+    // font-weight: 600;
+    // margin-right: 10px;
+  }
+}
+
+#jogar {
+  #nome-jogador {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+
+    input {
+      padding: 10px 20px;
+      border-radius: 10px;
+      outline-color: #000000;
+      text-transform: capitalize;
+      border: 1px solid #565656;
+    }
+
+    button {
+      width: 150px;
+      height: 40px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 10px;
+      background-color: #4CB4FF;
+    }
+  }
+}
+
+#desenvolvedor {
+  #info-desenvolvedor {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+    }
+
+    div {
+      gap: 0;
+      display: flex;
+      flex-direction: column;
+      font-size: 16px;
+
+      h2 {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  main#inicio {
+    gap: 20px;
+    width: 100vw;
+    padding: 40px 20px;
+  
+    h1 {
+      gap: 10px;
+      font-size: 18px;
+    }
+
+    #logo {
+      width: 24px;
+    }
+  
+    section {
+      padding: 20px;
+      font-size: 14px;
+      line-height: 1.2;
+
+      h3 {
+        font-size: 16px;
+      }
+    }
+  }
+}
