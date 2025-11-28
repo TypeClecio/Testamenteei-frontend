@@ -3,16 +3,22 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ScrollText } from "lucide-react";
 
-// import classificados from "../../assets/uteis/classificacao";
-
 import logoTypeclecio from "../../../public/logo-typeclecio.jpg";
 import "./Inicio.style.scss";
+
+interface classificado {
+  id: number;
+  created_at: string;
+  jogador: string;
+  acertos: number;
+  tempo: number;
+}
 
 const Inicio: React.FC = () => {
   const navigate = useNavigate();
 
   const [jogador, setJogador] = useState("");
-  // const [listaClassificados, setListaClassificados] = useState(classificados);
+  const [listaClassificados, setListaClassificados] = useState<classificado[]>([]);
 
   const iniciarPartida = () => {
     if (!jogador) return alert("Por favor, digite seu nome para iniciar a partida.");
@@ -27,10 +33,6 @@ const Inicio: React.FC = () => {
   useEffect(() => {
     document.title = "Início | Testamenteei";
 
-    const jogador = localStorage.getItem("jogador") || "";
-    if (!jogador) return;
-    setJogador(jogador);
-
     const obterClassificacao = async () => {
       try {
         const response = await fetch("http://localhost:3000/classificados", {
@@ -41,12 +43,21 @@ const Inicio: React.FC = () => {
           }
         });
 
-        const data = response.json();
-        console.log(data);
+        const { data } = await response.json();
+        if (!response.ok) {
+          console.error('Erro ao obter classificação:', data);
+          return;
+        }
+
+        setListaClassificados(data);
       } catch (error) {
         console.log(error);
       }
     }
+
+    const jogador = localStorage.getItem("jogador") || "";
+    if (!jogador) return;
+    setJogador(jogador);
 
     obterClassificacao();
   }, []); // Preenche o nome do jogador ao carregar a página
@@ -63,16 +74,17 @@ const Inicio: React.FC = () => {
         <p>Consegue dizer se o livro é do antigo ou do novo testamento?</p>
       </section>
 
-      {/* <section id="colocacao">
+      <section id="colocacao">
         <h3>Melhores jogadores</h3>
-        <ol id="melhores-jogadores" type="1">
-          {listaClassificados.map(({ jogador }, index) => (
-            <li key={index}>
-              <span id="nome-jogador">{ jogador }</span>
+        <ul id="melhores-jogadores">
+          {listaClassificados.map(({ id, jogador, acertos }) => (
+            <li key={id}>
+              <span>{acertos}</span>
+              <span>{jogador}</span>
             </li>
           ))}
-        </ol>
-      </section> */}
+        </ul>
+      </section>
 
       <section id="jogar">
         <h3>Digite o seu nome</h3>

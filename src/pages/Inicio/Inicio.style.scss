@@ -27,17 +27,35 @@ main#inicio {
   }
 }
 
-#colocacao {
-  #melhores-jogadores {
-    padding: 0 20px;
-  }
+section#colocacao {
+  ul {
+    padding: 0 !important;
+    gap: 2px;
+    display: flex;
+    flex-direction: column;
 
-  #nome-jogador {
-    // font-weight: 600;
-    // margin-right: 10px;
+    li {
+      gap: 5px;
+      display: flex;
+      align-items: center;
+      border-radius: 4px;
+      overflow: hidden;
+      text-transform: capitalize;
+
+      span:first-child {
+        width: 35px;
+        height: 25px;
+        font-size: 12px;
+        background-color: #b1deff;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+      }
+    }
   }
 }
-
 #jogar {
   #nome-jogador {
     gap: 10px;
