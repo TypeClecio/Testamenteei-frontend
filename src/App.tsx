@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 
 import "./assets/styles/global.scss";
 
 import Inicio from "./pages/Inicio/Inicio";
 import Jogatina from "./pages/Jogatina/Jogatina";
 import Final from "./pages/Final/Final";
-import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (

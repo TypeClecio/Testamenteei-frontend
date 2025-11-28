@@ -18,7 +18,7 @@ const Final: React.FC = () => {
 
   const [listaClassificados, setListaClassificados] = useState<classificado[]>([]);
   const [foiClassificado, setFoiClassificado] = useState<boolean>(false);
-  const [carregando, setCarregando] = useState<boolean>(true);
+  // const [carregando, setCarregando] = useState<boolean>(true);
 
   const medirPontuacao = async (data: classificado[]) => {
     const acertosJogador = Number(localStorage.getItem("acertos")) ?? 0;
@@ -62,7 +62,7 @@ const Final: React.FC = () => {
       await enviarClassificacaoAoBancoDados(top5);
     }
 
-    setCarregando(false);
+    // setCarregando(false);
   };
 
   const enviarClassificacaoAoBancoDados = async (listaAtualizada: classificado[]) => {
