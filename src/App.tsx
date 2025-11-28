@@ -5,17 +5,22 @@ import "./assets/styles/global.scss";
 import Inicio from "./pages/Inicio/Inicio";
 import Jogatina from "./pages/Jogatina/Jogatina";
 import Final from "./pages/Final/Final";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navigate to="/inicio" replace />} />
-        <Route path="/inicio" element={<Inicio />} />
-        <Route path="/jogatina" element={<Jogatina />} />
-        <Route path="/final" element={<Final />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigate to="/inicio" replace />} />
+          <Route path="/inicio" element={<Inicio />} />
+          <Route path="/jogatina" element={<Jogatina />} />
+          <Route path="/final" element={<Final />} />
+        </Routes>
+      </BrowserRouter>
+
+      <Analytics />
+    </>
   )
 }
 

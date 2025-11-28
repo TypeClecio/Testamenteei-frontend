@@ -152,8 +152,8 @@ const Final: React.FC = () => {
             <li>{foiClassificado ? "Classificado no top 5!" : "Não classificado"}</li>
           </ul>
 
-          <button onClick={() => jogarNovamente()} disabled={carregando}>
-            {carregando ? "Carregando..." : "Jogar novamente"}
+          <button onClick={() => jogarNovamente()}>
+            {"Jogar novamente"}
           </button>
         </div>
       </section>
