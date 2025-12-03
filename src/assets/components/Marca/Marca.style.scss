@@ -1,0 +1,16 @@
+h1#marca {
+  gap: 0 !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: start !important;
+  line-height: 1;
+  margin-bottom: 20px;
+
+  strong:first-child {
+    font-weight: 300;
+  }
+
+  strong:last-child {
+    font-weight: 600;
+  }
+}

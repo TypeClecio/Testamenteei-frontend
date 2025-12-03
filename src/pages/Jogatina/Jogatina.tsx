@@ -31,7 +31,7 @@ const Jogatina: React.FC = () => {
 
   const fimDaPartida = () => {
     const tempoAoFinalizar = new Date().getTime();
-    const tempoDecorrido = ((tempoAoFinalizar - tempoAoIniciar) / 1000).toFixed(1);
+    const tempoDecorrido = ((tempoAoFinalizar - tempoAoIniciar) / 1000).toFixed(0);
 
     localStorage.setItem("tempo", `${tempoDecorrido}`); // Salvar o tempo de jogatina
     localStorage.setItem("acertos", `${acertos}`); // Salvar a quantidade de acerto
@@ -67,7 +67,8 @@ const Jogatina: React.FC = () => {
   }, [index, ordem]);
 
   useEffect(() => {
-    document.title = "Jogatina | Testamenteei";
+    // document.title = "Jogatina | Testamenteei";
+
     if (acertos < 1) tempoAoIniciar = new Date().getTime();
     // já iniciamos com index 0 e ordem embaralhada
   }, []);

@@ -1,6 +1,6 @@
 main#jogatina {
-  width: 1000px;
-  margin: 0 auto;
+  // width: 1000px;
+  // margin: 0 auto;
 
   display: flex;
   flex-direction: column;
@@ -56,6 +56,46 @@ button#novo {
   color: #FFFFFF;
   font-size: 32px;
   font-weight: bold;
+}
+
+section#informativos {
+  position: absolute;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background-color: #F0F0F0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+
+  div#contador {
+    gap: 10px;
+    display: flex;
+
+    #quantidade-de-livros {
+      font-weight: 600;
+    }
+  }
+}
+
+section#controles {
+  display: flex;
+  flex-direction: column;
+
+  div#temporizador {
+    z-index: 3;
+    height: 30px;
+    position: absolute;
+    top: calc(50vh - 15px);
+    transition: width 350ms ease-out;
+  }
+
+  button {
+    width: 100vw;
+    height: 50vh;
+  }
 }
 
 @media screen and (max-width: 1000px) {

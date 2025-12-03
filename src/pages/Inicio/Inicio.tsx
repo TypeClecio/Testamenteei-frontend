@@ -1,24 +1,24 @@
 import type React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ScrollText } from "lucide-react";
 
 import logoTypeclecio from "../../../public/logo-typeclecio.jpg";
 import "./Inicio.style.scss";
+import Marca from "../../assets/components/Marca/Marca";
 
-interface classificado {
-  id: number;
-  created_at: string;
-  jogador: string;
-  acertos: number;
-  tempo: number;
-}
+// interface classificado {
+//   id: number;
+//   created_at: string;
+//   jogador: string;
+//   acertos: number;
+//   tempo: number;
+// }
 
 const Inicio: React.FC = () => {
   const navigate = useNavigate();
 
   const [jogador, setJogador] = useState("");
-  const [listaClassificados, setListaClassificados] = useState<classificado[]>([]);
+  // const [listaClassificados, setListaClassificados] = useState<classificado[]>([]);
 
   const iniciarPartida = () => {
     if (!jogador) return alert("Por favor, digite seu nome para iniciar a partida.");
@@ -31,43 +31,40 @@ const Inicio: React.FC = () => {
   }, [jogador]); // Salva o nome do jogador no localStorage sempre que ele mudar
 
   useEffect(() => {
-    document.title = "Início | Testamenteei";
+    // document.title = "Test a-menteei";
 
-    const obterClassificacao = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/classificados", {
-          method: "GET",
-          credentials: "include", // <- envia cookies ou credenciais da sessão
-          headers: {
-            "Content-Type": "application/json"
-          }
-        });
+    // const obterClassificacao = async () => {
+    //   try {
+    //     const response = await fetch("http://localhost:3000/classificados/obter", {
+    //       method: "GET",
+    //       credentials: "include", // <- envia cookies ou credenciais da sessão
+    //       headers: {
+    //         "Content-Type": "application/json"
+    //       }
+    //     });
 
-        const { data } = await response.json();
-        if (!response.ok) {
-          console.error('Erro ao obter classificação:', data);
-          return;
-        }
+    //     const { data } = await response.json();
+    //     if (!response.ok) {
+    //       console.error('Erro ao obter classificação:', data);
+    //       return;
+    //     }
 
-        setListaClassificados(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
+    //     setListaClassificados(data);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
 
     const jogador = localStorage.getItem("jogador") || "";
     if (!jogador) return;
     setJogador(jogador);
 
-    obterClassificacao();
+    // obterClassificacao();
   }, []); // Preenche o nome do jogador ao carregar a página
 
   return (
     <main id="inicio">
-      <h1>
-        <ScrollText id="logo" size={32} strokeWidth={3} />
-        Testamenteei
-      </h1>
+      <Marca />
 
       <section id="informativo">
         <h3>Conhece a Bíblia?</h3>
@@ -77,12 +74,20 @@ const Inicio: React.FC = () => {
       <section id="colocacao">
         <h3>Melhores jogadores</h3>
         <ul id="melhores-jogadores">
-          {listaClassificados.map(({ id, jogador, acertos }) => (
-            <li key={id}>
+          <li>
+            <span>53</span>
+            <span>Ruth</span>
+          </li>
+          <li>
+            <span>50</span>
+            <span>Clécio</span>
+          </li>
+          {/* {listaClassificados.map(({ jogador, acertos }, index) => (
+            <li key={index}>
               <span>{acertos}</span>
               <span>{jogador}</span>
             </li>
-          ))}
+          ))} */}
         </ul>
       </section>
 
