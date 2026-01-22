@@ -6,19 +6,9 @@ import logoTypeclecio from "../../../public/logo-typeclecio.jpg";
 import "./Inicio.style.scss";
 import Marca from "../../assets/components/Marca/Marca";
 
-// interface classificado {
-//   id: number;
-//   created_at: string;
-//   jogador: string;
-//   acertos: number;
-//   tempo: number;
-// }
-
 const Inicio: React.FC = () => {
   const navigate = useNavigate();
-
-  const [jogador, setJogador] = useState("");
-  // const [listaClassificados, setListaClassificados] = useState<classificado[]>([]);
+  const [jogador, setJogador] = useState(""); // Nome do jogador
 
   const iniciarPartida = () => {
     if (!jogador) return alert("Por favor, digite seu nome para iniciar a partida.");
@@ -31,35 +21,9 @@ const Inicio: React.FC = () => {
   }, [jogador]); // Salva o nome do jogador no localStorage sempre que ele mudar
 
   useEffect(() => {
-    // document.title = "Test a-menteei";
-
-    // const obterClassificacao = async () => {
-    //   try {
-    //     const response = await fetch("http://localhost:3000/classificados/obter", {
-    //       method: "GET",
-    //       credentials: "include", // <- envia cookies ou credenciais da sessão
-    //       headers: {
-    //         "Content-Type": "application/json"
-    //       }
-    //     });
-
-    //     const { data } = await response.json();
-    //     if (!response.ok) {
-    //       console.error('Erro ao obter classificação:', data);
-    //       return;
-    //     }
-
-    //     setListaClassificados(data);
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // }
-
     const jogador = localStorage.getItem("jogador") || "";
     if (!jogador) return;
     setJogador(jogador);
-
-    // obterClassificacao();
   }, []); // Preenche o nome do jogador ao carregar a página
 
   return (
@@ -75,19 +39,13 @@ const Inicio: React.FC = () => {
         <h3>Melhores jogadores</h3>
         <ul id="melhores-jogadores">
           <li>
-            <span>53</span>
+            <span>36.2s</span>
             <span>Ruth</span>
           </li>
           <li>
-            <span>50</span>
+            <span>54.8s</span>
             <span>Clécio</span>
           </li>
-          {/* {listaClassificados.map(({ jogador, acertos }, index) => (
-            <li key={index}>
-              <span>{acertos}</span>
-              <span>{jogador}</span>
-            </li>
-          ))} */}
         </ul>
       </section>
 

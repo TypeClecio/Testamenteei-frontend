@@ -31,7 +31,7 @@ const Jogatina: React.FC = () => {
 
   const fimDaPartida = () => {
     const tempoAoFinalizar = new Date().getTime();
-    const tempoDecorrido = ((tempoAoFinalizar - tempoAoIniciar) / 1000).toFixed(0);
+    const tempoDecorrido = ((tempoAoFinalizar - tempoAoIniciar) / 1000).toFixed(1);
 
     localStorage.setItem("tempo", `${tempoDecorrido}`); // Salvar o tempo de jogatina
     localStorage.setItem("acertos", `${acertos}`); // Salvar a quantidade de acerto
@@ -62,16 +62,12 @@ const Jogatina: React.FC = () => {
   }, [tempo]); // Função para iniciar a partida com o temporizador
 
   useEffect(() => {
-    // atualiza o livro atual quando o índice mudar
     setLivroAtual(ordem[index] || { nome: "", testamento: "" });
-  }, [index, ordem]);
+  }, [index, ordem]); // atualiza o livro atual quando o índice mudar
 
   useEffect(() => {
-    // document.title = "Jogatina | Testamenteei";
-
     if (acertos < 1) tempoAoIniciar = new Date().getTime();
-    // já iniciamos com index 0 e ordem embaralhada
-  }, []);
+  }, []); // já iniciamos com index 0 e ordem embaralhada
 
   return (
     <main id="jogatina">
