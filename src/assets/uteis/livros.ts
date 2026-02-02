@@ -27,6 +27,18 @@ const initialLivros = [
   { nome: "Lamentações", testamento: "antigo" },
   { nome: "Ezequiel", testamento: "antigo" },
   { nome: "Daniel", testamento: "antigo" },
+  { nome: "Oséias", testamento: "antigo" },
+  { nome: "Joel", testamento: "antigo" },
+  { nome: "Amós", testamento: "antigo" },
+  { nome: "Obadias", testamento: "antigo" },
+  { nome: "Jonas", testamento: "antigo" },
+  { nome: "Miqueias", testamento: "antigo" },
+  { nome: "Naum", testamento: "antigo" },
+  { nome: "Habacuque", testamento: "antigo" },
+  { nome: "Sofonias", testamento: "antigo" },
+  { nome: "Ageu", testamento: "antigo" },
+  { nome: "Zacarias", testamento: "antigo" },
+  { nome: "Malaquias", testamento: "antigo" },
 
   // --- 27 livros do Novo Testamento ---
   { nome: "Mateus", testamento: "novo" },
