@@ -5,15 +5,48 @@ import { useNavigate } from "react-router-dom";
 import logoTypeclecio from "../../../public/logo-typeclecio.jpg";
 import "./Inicio.style.scss";
 import Marca from "../../assets/components/Marca/Marca";
+import { getApiUrl, API_ENDPOINTS } from "../../config/api";
+
+interface JogadorTop {
+  tempo: string;
+  nome: string;
+  criado_em: string;
+}
+
+interface ApiResponse {
+  jogadores: JogadorTop[];
+  sucesso: boolean;
+}
 
 const Inicio: React.FC = () => {
   const navigate = useNavigate();
   const [jogador, setJogador] = useState(""); // Nome do jogador
+  const [jogadoresTop, setJogadoresTop] = useState<JogadorTop[]>([]); // Lista dos 5 melhores jogadores
 
   const iniciarPartida = () => {
     if (!jogador) return alert("Por favor, digite seu nome para iniciar a partida.");
     navigate("/jogatina");
   }; // Função para iniciar a partida, verificando se o nome do jogador foi inserido
+
+  useEffect(() => {
+    const fetchJogadoresTop = async () => {
+      try {
+        const response = await fetch(getApiUrl(API_ENDPOINTS.TOP_JOGADORES));
+        if (!response.ok) throw new Error("Erro ao buscar jogadores");
+        const dados: ApiResponse = await response.json();
+        if (dados.sucesso) {
+          setJogadoresTop(dados.jogadores);
+          // Armazena no localStorage para uso posterior
+          localStorage.setItem("jogadoresTop", JSON.stringify(dados.jogadores));
+        } else {
+          console.error("Erro na resposta da API:", dados);
+        }
+      } catch (error) {
+        console.error("Erro ao buscar os melhores jogadores:", error);
+      }
+    };
+    fetchJogadoresTop();
+  }, []); // Busca os 5 melhores jogadores ao carregar a página
 
   useEffect(() => {
     if (!jogador) return;
@@ -38,14 +71,12 @@ const Inicio: React.FC = () => {
       <section id="colocacao">
         <h3>Melhores jogadores</h3>
         <ul id="melhores-jogadores">
-          <li>
-            <span>36.2s</span>
-            <span>Ruth</span>
-          </li>
-          <li>
-            <span>54.8s</span>
-            <span>Clécio</span>
-          </li>
+          {jogadoresTop.map((jogador, index) => (
+            <li key={index}>
+              <span>{jogador.tempo}</span>
+              <span>{jogador.nome}</span>
+            </li>
+          ))}
         </ul>
       </section>
 

@@ -29,21 +29,22 @@ const Jogatina: React.FC = () => {
   const [ordem] = useState(() => shuffle(initialLivros));
   const [index, setIndex] = useState(0);
 
-  const fimDaPartida = () => {
+  const fimDaPartida = (acertosFinais: number) => {
     const tempoAoFinalizar = new Date().getTime();
     const tempoDecorrido = ((tempoAoFinalizar - tempoAoIniciar) / 1000).toFixed(1);
 
     localStorage.setItem("tempo", `${tempoDecorrido}`); // Salvar o tempo de jogatina
-    localStorage.setItem("acertos", `${acertos}`); // Salvar a quantidade de acerto
+    localStorage.setItem("acertos", `${acertosFinais}`); // Salvar a quantidade de acerto
     return navigate("/final", { replace: true });
   }
 
   const correcaoResposta = (resposta: string) => {
-    if (livroAtual?.testamento != resposta) return fimDaPartida();
-    setAcertos(a => a + 1);
+    if (livroAtual?.testamento != resposta) return fimDaPartida(acertos);
+    const novoAcerto = acertos + 1;
+    setAcertos(novoAcerto);
 
     // se está no último livro, finaliza a partida
-    if (index >= ordem.length - 1) return fimDaPartida();
+    if (index >= ordem.length - 1) return fimDaPartida(novoAcerto);
 
     setTempo(100);
     setIndex(i => i + 1);
