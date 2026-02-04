@@ -31,7 +31,7 @@ const Inicio: React.FC = () => {
   useEffect(() => {
     const fetchJogadoresTop = async () => {
       try {
-        const response = await fetch(getApiUrl(API_ENDPOINTS.TOP_JOGADORES));
+        const response = await fetch(getApiUrl(API_ENDPOINTS.OBTER_CLASSIFICACAO));
         if (!response.ok) throw new Error("Erro ao buscar jogadores");
         const dados: ApiResponse = await response.json();
         if (dados.sucesso) {

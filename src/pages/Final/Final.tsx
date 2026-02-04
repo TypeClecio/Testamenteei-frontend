@@ -52,7 +52,7 @@ const Final: React.FC = () => {
 
       // Condição 2: Verificar se tempo é menor que o último do ranking
       try {
-        const response = await fetch(getApiUrl(API_ENDPOINTS.TOP_JOGADORES));
+        const response = await fetch(getApiUrl(API_ENDPOINTS.OBTER_CLASSIFICACAO));
         if (!response.ok) throw new Error("Erro ao buscar jogadores");
 
         const data = await response.json();
@@ -80,7 +80,7 @@ const Final: React.FC = () => {
 
   const fazerPostSalvarJogador = async (nome: string, tempo: number) => {
     try {
-      const response = await fetch(getApiUrl(API_ENDPOINTS.SALVAR_JOGADOR), {
+      const response = await fetch(getApiUrl(API_ENDPOINTS.CRIAR_CLASSIFICACAO), {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
