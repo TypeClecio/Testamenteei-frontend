@@ -41,38 +41,17 @@ const Final: React.FC = () => {
       const tempo = Number(localStorage.getItem("tempo")) ?? 0;
       const nome = localStorage.getItem("jogador") ?? "";
 
-      // Condição 1: Jogador acertou todos os livros (22 no total)
-      const acertouTodos = acertos >= initialLivros.length;
-
-      if (!acertouTodos) {
+      // Condição: Jogador não acertou todos os livros (66 no total)
+      const errouMeta = acertos < initialLivros.length;
+      
+      if (errouMeta) {
         // Carrega a lista de top jogadores do cache (localStorage)
         carregarJogadoresDoCache();
         return;
       }
 
-      // Condição 2: Verificar se tempo é menor que o último do ranking
-      try {
-        const response = await fetch(getApiUrl(API_ENDPOINTS.OBTER_CLASSIFICACAO));
-        if (!response.ok) throw new Error("Erro ao buscar jogadores");
-
-        const data = await response.json();
-        const jogadores: JogadorTop[] = data.jogadores || [];
-
-        if (jogadores.length === 0) {
-          // Se não há jogadores, salva automaticamente
-          await fazerPostSalvarJogador(nome, tempo);
-          return;
-        }
-
-        const ultimoDoRanking = Number(jogadores[jogadores.length - 1].tempo);
-
-        if (tempo < ultimoDoRanking || jogadores.length < 5) {
-          // Se tempo é menor que o último OU ainda não há 5 jogadores
-          await fazerPostSalvarJogador(nome, tempo);
-        }
-      } catch (error) {
-        console.error("Erro ao buscar ranking:", error);
-      }
+      // Envia ao Backend o resultado da partida
+      await fazerPostSalvarJogador(nome, tempo);
     };
 
     salvarJogador();

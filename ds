@@ -1,0 +1,65 @@
+[33mcommit 200f8ba1a29195156538f1e9e367cb11d0918284[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: TypeClecio <devclecio@gmail.com>
+Date:   Tue Feb 3 21:52:41 2026 -0300
+
+    Ajuste no CAMINHO/ENDPOINTS para o BACKEND
+
+[33mcommit 8d0f6781ee8797d644210be4b1cb77bc43d4e0a9[m
+Author: TypeClecio <devclecio@gmail.com>
+Date:   Mon Feb 2 15:34:55 2026 -0300
+
+    Complemento na lista de Livros
+
+[33mcommit efd9339a950e3f03e36b6e38279ca24cb830cf47[m
+Author: TypeClecio <devclecio@gmail.com>
+Date:   Mon Feb 2 13:57:18 2026 -0300
+
+    Adicionando o Backend
+
+[33mcommit 6b38dc326281d37d3cbdfb944055a0a729441e44[m
+Author: TypeClecio <devclecio@gmail.com>
+Date:   Wed Jan 21 22:59:56 2026 -0300
+
+    Removendo tudo quanto sobre ranking
+
+[33mcommit 86ff42c609663994b31e3e16fd58aa44a0348890[m
+Author: TypeClecio <devclecio@gmail.com>
+Date:   Tue Dec 2 23:10:27 2025 -0300
+
+    Melhorando o visual
+
+[33mcommit 4887323c952a72e1a6fc90ff040c9aedbccd2ed7[m
+Author: TypeClecio <devclecio@gmail.com>
+Date:   Fri Nov 28 17:10:35 2025 -0300
+
+    Ajustes de detalhes
+
+[33mcommit dcdaa174b5fe1951ee33a0b63ec32d4399fc3ce2[m
+Author: TypeClecio <devclecio@gmail.com>
+Date:   Fri Nov 28 17:04:22 2025 -0300
+
+    Adicionei ao projeto um Analytics para VERCEL
+
+[33mcommit fc489cbb6c827d47974200846bc54703636d5979[m
+Author: TypeClecio <devclecio@gmail.com>
+Date:   Fri Nov 28 16:53:32 2025 -0300
+
+    Configurando rotas no VERCEL
+
+[33mcommit 7cc687dd75b7b978c20d39cd91e0a1f786239c8e[m
+Author: TypeClecio <devclecio@gmail.com>
+Date:   Thu Nov 27 18:30:57 2025 -0300
+
+    Adicionando /dist
+
+[33mcommit 9ce883253e2a55105b4bcaa24006c8d34c6f1dfe[m
+Author: TypeClecio <devclecio@gmail.com>
+Date:   Thu Nov 27 18:20:53 2025 -0300
+
+    Correções
+
+[33mcommit c74fcee18583529c8e770aa65b40f24c12eadb53[m
+Author: TypeClecio <devclecio@gmail.com>
+Date:   Thu Nov 27 18:16:59 2025 -0300
+
+    first commit
