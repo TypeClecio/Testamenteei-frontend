@@ -22,6 +22,7 @@ const Inicio: React.FC = () => {
   const navigate = useNavigate();
   const [jogador, setJogador] = useState(""); // Nome do jogador
   const [jogadoresTop, setJogadoresTop] = useState<JogadorTop[]>([]); // Lista dos 5 melhores jogadores
+  const [erroApi, setErroApi] = useState(false);
 
   const iniciarPartida = () => {
     if (!jogador) return alert("Por favor, digite seu nome para iniciar a partida.");
@@ -42,9 +43,10 @@ const Inicio: React.FC = () => {
           console.error("Erro na resposta da API:", dados);
         }
       } catch (error) {
-        console.error("Erro ao buscar os melhores jogadores:", error);
+        setErroApi(true)
       }
     };
+
     fetchJogadoresTop();
   }, []); // Busca os 5 melhores jogadores ao carregar a página
 
@@ -71,12 +73,16 @@ const Inicio: React.FC = () => {
       <section id="colocacao">
         <h3>Melhores jogadores</h3>
         <ul id="melhores-jogadores">
-          {jogadoresTop.map((jogador, index) => (
-            <li key={index}>
-              <span>{jogador.tempo}</span>
-              <span>{jogador.nome}</span>
-            </li>
-          ))}
+          {
+            erroApi
+              ? (<p>Não foi possível carregar os Classificados.</p>)
+              : jogadoresTop.map((jogador, index) => (
+                <li key={index}>
+                  <span>{jogador.tempo}</span>
+                  <span>{jogador.nome}</span>
+                </li>
+              ))
+          }
         </ul>
       </section>
 
