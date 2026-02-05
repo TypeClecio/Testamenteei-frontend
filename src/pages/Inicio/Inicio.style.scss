@@ -60,14 +60,32 @@ section#colocacao {
   #nome-jogador {
     gap: 10px;
     display: flex;
+    position: relative;
     flex-direction: column;
 
-    input {
-      padding: 10px 20px;
+    fieldset {
+      display: flex;
+      align-items: center;
       border-radius: 10px;
       outline-color: #000000;
-      text-transform: capitalize;
       border: 1px solid #565656;
+      justify-content: space-between;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 10px 20px;
+      background: transparent;
+      text-transform: capitalize;
+    }
+
+    span {
+      right: 20px;
+      user-select: none;
+      position: absolute;
+      pointer-events: none;
     }
 
     button {

@@ -22,7 +22,9 @@ const Inicio: React.FC = () => {
   const navigate = useNavigate();
   const [jogador, setJogador] = useState(""); // Nome do jogador
   const [jogadoresTop, setJogadoresTop] = useState<JogadorTop[]>([]); // Lista dos 5 melhores jogadores
-  const [erroApi, setErroApi] = useState(false);
+  const [erroApi, setErroApi] = useState(false); // Alerta de erro por não receber a lista dos CLASSIFICADOS
+
+  const limiteDeCaracterNomeDeJogador = 10;
 
   const iniciarPartida = () => {
     if (!jogador) return alert("Por favor, digite seu nome para iniciar a partida.");
@@ -89,12 +91,21 @@ const Inicio: React.FC = () => {
       <section id="jogar">
         <h3>Digite o seu nome</h3>
         <div id="nome-jogador">
-          <input
-            type="text"
-            value={jogador}
-            placeholder="Digite..."
-            onChange={(e) => setJogador((e.target.value).toLowerCase())}
-          />
+          <fieldset>
+            <input
+              name="jogador"
+              type="text"
+              value={jogador}
+              placeholder="Digite..."
+              onChange={(e) => {
+                const valor = e.target.value;
+                if (valor.length <= limiteDeCaracterNomeDeJogador) setJogador((valor).toLowerCase())
+              }}
+            />
+
+            <span>{jogador.length}/{limiteDeCaracterNomeDeJogador}</span>
+          </fieldset>
+
           <button onClick={() => iniciarPartida()}>Jogar</button>
         </div>
       </section>
