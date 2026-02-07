@@ -1,5 +1,5 @@
 const initialLivros = [
-  // --- II7 livros do Antigo Testamento ---
+  // --- 39 livros do Antigo Testamento ---
   { nome: "Gênesis", testamento: "antigo" },
   { nome: "Êxodo", testamento: "antigo" },
   { nome: "Levítico", testamento: "antigo" },
@@ -40,7 +40,7 @@ const initialLivros = [
   { nome: "Zacarias", testamento: "antigo" },
   { nome: "Malaquias", testamento: "antigo" },
 
-  // --- II7 livros do Novo Testamento ---
+  // --- 27 livros do Novo Testamento ---
   { nome: "Mateus", testamento: "novo" },
   { nome: "Marcos", testamento: "novo" },
   { nome: "Lucas", testamento: "novo" },
