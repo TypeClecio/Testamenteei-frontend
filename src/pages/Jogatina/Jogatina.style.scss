@@ -33,7 +33,6 @@ button#antigo {
   border: none;
   color: #FFFFFF;
   font-size: 32px;
-  font-weight: bold;
 }
 
 section#livro {
@@ -55,7 +54,6 @@ button#novo {
   border: none;
   color: #FFFFFF;
   font-size: 32px;
-  font-weight: bold;
 }
 
 section#informativos {
@@ -95,6 +93,7 @@ section#controles {
   button {
     width: 100vw;
     height: 50vh;
+    font-family: "Young Serif", "Playfair", serif;
   }
 }
 
@@ -150,7 +149,6 @@ section#controles {
       height: 50vh;
       font-size: 24px;
       font-weight: 900;
-      font-family: "Playfair Display", sans-serif;
     }
 
     #temporizador {
