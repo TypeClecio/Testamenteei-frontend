@@ -99,7 +99,8 @@ const Inicio: React.FC = () => {
               placeholder="Digite..."
               onChange={(e) => {
                 const valor = e.target.value;
-                if (valor.length <= limiteDeCaracterNomeDeJogador) setJogador((valor).toLowerCase())
+                const digitado = valor.toLowerCase().trim();
+                if (valor.length <= limiteDeCaracterNomeDeJogador) setJogador(digitado);
               }}
             />
 
