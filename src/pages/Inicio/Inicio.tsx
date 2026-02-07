@@ -53,7 +53,6 @@ const Inicio: React.FC = () => {
   }, []); // Busca os 5 melhores jogadores ao carregar a página
 
   useEffect(() => {
-    if (!jogador) return;
     localStorage.setItem("jogador", jogador);
   }, [jogador]); // Salva o nome do jogador no localStorage sempre que ele mudar
 
