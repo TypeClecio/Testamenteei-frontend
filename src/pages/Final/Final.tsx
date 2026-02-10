@@ -43,7 +43,7 @@ const Final: React.FC = () => {
 
       // Condição: Jogador não acertou todos os livros (66 no total)
       const errouMeta = acertos < initialLivros.length;
-      
+
       if (errouMeta) {
         // Carrega a lista de top jogadores do cache (localStorage)
         carregarJogadoresDoCache();
@@ -98,7 +98,7 @@ const Final: React.FC = () => {
       </section>
 
       <section id="jogar">
-        <h3>Seu resultado</h3>
+        <h3>Seu resultado:</h3>
         <div>
           <ul>
             <li>Acertos: {Number(localStorage.getItem("acertos")) ?? 0}</li>
