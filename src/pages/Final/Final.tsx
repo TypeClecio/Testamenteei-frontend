@@ -101,7 +101,7 @@ const Final: React.FC = () => {
         <h3>Seu resultado:</h3>
         <div>
           <ul>
-            <li>Acertos: {Number(localStorage.getItem("acertos")) ?? 0}</li>
+            <li>Acertos de livros: {Number(localStorage.getItem("acertos")) ?? 0}</li>
             <li>Tempo decorrido: {Number(localStorage.getItem("tempo")) ?? 0}s</li>
           </ul>
 
