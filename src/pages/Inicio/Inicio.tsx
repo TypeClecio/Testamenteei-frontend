@@ -80,8 +80,9 @@ const Inicio: React.FC = () => {
               ? (<p>Não foi possível carregar os Classificados.</p>)
               : jogadoresTop.map((jogador, index) => (
                 <li key={index}>
-                  <span>{jogador.tempo}</span>
+                  <span>{index + 1}.</span>
                   <span>{jogador.nome}</span>
+                  <span>{jogador.tempo} seg</span>
                 </li>
               ))
           }
